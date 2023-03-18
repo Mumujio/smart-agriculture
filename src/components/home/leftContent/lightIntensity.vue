@@ -8,12 +8,18 @@
 <script setup>
 import { inject, onMounted, reactive, ref } from "vue";
 let echarts = inject("echarts");
-
+const props = defineProps(["projectData"]);
 const mychartDom = ref(null);
 let mychart = null;
 const chart = reactive({
   option: {},
 });
+// const { proxy } = getCurrentInstance();
+// proxy.$EventBus.on("light_strength", (data) => {
+//   light_change(data);
+// });
+
+// const light_change = (data) => {};
 const chartPrepare = () => {
   mychart = echarts.init(mychartDom.value);
 };

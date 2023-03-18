@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { inject, onMounted, reactive } from "vue";
+import { inject, onMounted, reactive, getCurrentInstance } from "vue";
 let axios = inject("axios");
 let echarts = inject("echarts");
 let mychart = null;
@@ -16,7 +16,71 @@ const chart = reactive({
   option: {},
 });
 let width = window.innerWidth;
+// const { proxy } = getCurrentInstance();
+// proxy.$EventBus.on("light_dayData", (data) => {
+//   light_change(data);
+// });
+// const light_change = (data) => {
+//   chart.option = {
+//     xAxis: {
+//       type: "value",
+//       splitLine: {
+//         show: false,
+//       },
+//       axisLabel: {
+//         show: false,
+//       },
+//     },
+//     yAxis: {
+//       type: "category",
+//       data: ["数据采集", "图像采集", "自动控制", "智能预警"],
 
+//       splitLine: {
+//         show: false,
+//       },
+//       nameTextStyle: {
+//         padding: [0, 0, 0, 4],
+//       },
+//       axisLabel: {
+//         fontSize: (15 * window.innerWidth) / 1920,
+//         fontWeight: 400,
+//         color: "#ffffff",
+//         hideOverlap: true,
+//       },
+//     },
+//     series: [
+//       {
+//         data: data,
+//         type: "bar",
+//         showBackground: true,
+//         backgroundStyle: {
+//           color: "rgba(220, 220, 220, 0.2)",
+//           borderRadius: [0, 10, 10, 0],
+//         },
+//         label: {
+//           show: true,
+//           position: "right",
+//           valueAnimation: true,
+//           fontSize: (15 * window.innerWidth) / 1920,
+//           fontWeight: 400,
+//           fontFamily: "PingFang SC-Regular",
+//           textShadowColor: "#000000",
+//           color: "#ffffff",
+//         },
+//         itemStyle: {
+//           borderRadius: [0, 10, 10, 0],
+//         },
+//       },
+//     ],
+//     grid: {
+//       containLabel: true,
+//       left: "2%",
+//       height: 100,
+//       top: "middle",
+//     },
+//   };
+//   mychart.setOption(chart.option);
+// };
 const chartPrepare = () => {
   mychart = echarts.init(document.querySelector(".dayContent"));
 };

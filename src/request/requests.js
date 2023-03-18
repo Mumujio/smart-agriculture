@@ -1,4 +1,4 @@
-import { requestWeather } from './axios'
+import { requestWeather,requestData,requestReal } from './axios'
 // 请求实时天气
 export const requestCurrentWeatherInfo = () => {
     return requestWeather({
@@ -25,3 +25,24 @@ export const requestFutureWeatherInfo = () => {
         }
     })
 }
+
+// 请求湖北省数据
+export const requestHuBeiData = (url) => {
+    return requestData({
+        url,
+        method:'get',
+
+    })
+}
+
+// 1.
+export const requestProjectData = (path) => {
+    return requestReal({
+        url:path,
+        method:'get',
+    })
+}
+
+
+
+

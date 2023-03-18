@@ -2,7 +2,7 @@
   <router-view />
 </template>
 <script>
-import { onMounted, provide, reactive,props} from "vue";
+import { onMounted, provide, reactive, props } from "vue";
 import * as echarts from "echarts";
 import axios from "axios";
 export default {
