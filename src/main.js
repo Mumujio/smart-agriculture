@@ -7,9 +7,10 @@ import ElementPlus from 'element-plus'
 import './assets/css/common.css'
 import 'element-plus/dist/index.css'
 import mitt from 'mitt'
-
+import '@/utils/rem'
 //引用插件
-import "lib-flexible/flexible"
+// import "lib-flexible/flexible"
+
 
 const app = createApp(App)
 app.config.globalProperties.$EventBus = new mitt()

@@ -2,9 +2,7 @@
   <div class="all">
     <div class="all-container" v-loading="!flag">
       <div class="head">
-        <dv-border-box-1
-          ><div class="text">“温室管家”智慧农业云平台</div></dv-border-box-1
-        >
+        <div class="text">“温室管家”智慧农业云平台</div>
       </div>
       <div class="content">
         <div class="content-left">
@@ -19,7 +17,8 @@
             <lightIntensity></lightIntensity>
           </div>
         </div>
-        <div class="content-center"><center v-if="flag"></center></div>
+        <!-- <div class="content-center"><center v-if="flag"></center></div> -->
+
         <div class="content-right">
           <div class="weather">
             <weather></weather>
@@ -46,7 +45,6 @@ import { ref, onMounted } from "vue";
 const projectData = reactive({});
 const flag = ref(false);
 const envDetection1 = ref(null);
-
 onMounted(() => {
   getData();
 });
@@ -65,11 +63,9 @@ function getData() {
                 requestProjectData("getLightValue").then((res) => {
                   projectData.lightValue = res;
 
-                  const { chartOpen } = envDetection1.value;
-                  chartOpen();
+                  envDetection1.value.chartOpen();
                   flag.value = true;
 
-                  console.log(envDetection1.value);
                   setTimeout(() => {
                     getData();
                   }, 10000);
@@ -91,7 +87,7 @@ function getData() {
   height: 100%;
   // background-image: url("../assets/indexPhoto/BG1.png");
   // background-size: 100% 100%;
-  background-color: black;
+  // background-image: "../assets/background1.png";
   z-index: -99;
   .head {
     height: 17.5%;
@@ -106,7 +102,7 @@ function getData() {
     .text {
       font-size: 0.4875rem;
       padding-top: 1.77%;
-      font-family: PingFang SC-Bold, PingFang SC;
+      font-family: "PingFang SC-Bold, PingFang SC";
     }
   }
   .content {

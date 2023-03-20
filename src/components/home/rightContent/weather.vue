@@ -28,9 +28,9 @@
       <div class="footer" ref="mychartDom"></div>
     </div>
   </div>
-  <div class="time">
+  <!-- <div class="time">
     {{ option.reporttime + "  " + option.hours + ":" + option.minutes }}
-  </div>
+  </div> -->
 </template>
 
 <script setup>

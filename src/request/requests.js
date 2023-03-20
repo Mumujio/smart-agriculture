@@ -1,4 +1,4 @@
-import { requestWeather,requestData,requestReal } from './axios'
+import { requestWeather,requestData,requestReal,requestLogin } from './axios'
 // 请求实时天气
 export const requestCurrentWeatherInfo = () => {
     return requestWeather({
@@ -40,6 +40,15 @@ export const requestProjectData = (path) => {
     return requestReal({
         url:path,
         method:'get',
+    })
+}
+
+
+export const requestLoginInfo = (data) => {
+    return requestLogin({
+        url: 'http://121.36.5.157:5000/user/login',
+        method: 'post',
+        data
     })
 }
 
