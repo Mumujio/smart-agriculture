@@ -1,12 +1,7 @@
 <template>
   <div class="all">
-    <h2>用户分布</h2>
+    <h2>种植分布</h2>
     <div class="content" ref="myChartDom"></div>
-    <!-- <div class="data">
-      <div>23043</div>
-      <div>14658</div>
-      <div>4758</div>
-    </div> -->
   </div>
 </template>
 
@@ -19,32 +14,32 @@ let mychart = null;
 const chart = reactive({
   option: {},
 });
-// const { ctx } = getCurrentInstance();
-// ctx.$EventBus.on("change_personNum", (data) => {
-//   console.log(data);
-// });
-// 市区人数数据
+
 let data = [
   {
-    name: "鄂州市",
-    value: 84,
+    name: "番茄",
+    value: 25,
   },
 
   {
-    name: "咸宁市",
-    value: 96,
+    name: "豆芽",
+    value: 13,
   },
   {
-    name: "天门市",
-    value: 89,
+    name: "花菜",
+    value: 12,
   },
   {
-    name: "孝感市",
-    value: 123,
+    name: "香菜",
+    value: 12,
   },
   {
-    name: "其它",
-    value: 172,
+    name: "芹菜",
+    value: 25,
+  },
+  {
+    name: "小白菜",
+    value: 13,
   },
 ];
 const chartPrepare = () => {
@@ -54,30 +49,43 @@ const chartPrepare = () => {
 const chartOpen = () => {
   chart.option = {
     legend: {
-      type: "scroll",
+      type: "plain",
       orient: "vertical",
       top: "center",
-      left: "5%",
+      left: (50 * window.innerWidth) / 1920,
       textStyle: {
-        color: "#fff",
-        fontSize: (16 * window.innerWidth) / 1920,
+        color: "#F5F6FA",
+        fontSize: (20 * window.innerWidth) / 1920,
+        fontWeight: 400,
+        padding: [0, 0, 0, (26 * window.innerWidth) / 1920],
       },
-      itemWidth: (30 * window.innerWidth) / 1920,
-      // itemHeight: (16 * window.innerHeight) / 1920,
+      itemWidth: (17 * window.innerWidth) / 1920,
+      itemHeight: (17 * window.innerHeight) / 1080,
+      itemGap: (17 * window.innerHeight) / 1080,
+      formatter: function (name) {
+        let arrValue = 0;
+        data.forEach((item) => {
+          if (item.name == name) {
+            arrValue = item.value;
+          }
+        });
+        return name + "    " + arrValue + "%";
+      },
     },
     tooltip: {
       trigger: "item",
+      triggerOn: "mousemove",
       formatter: "{a} <br/>{b} : {c} ({d}%)",
     },
     series: [
       {
-        name: "用户分布",
+        name: "种植分布",
         type: "pie",
-        radius: [15, 70],
+        // radius: [20, 100],
         center: ["75%", "50%"],
         roseType: "area",
         itemStyle: {
-          borderRadius: 5,
+          // borderRadius: 5,
         },
         label: {
           show: false,
@@ -102,18 +110,20 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .all {
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
+  width: 570px;
+  height: 310px;
+  background-color: rgba(245, 246, 250, 0.1);
+  border-radius: 6px 6px 6px 6px;
   h2 {
-    color: white;
+    color: #ffffff;
     font-weight: bold;
-    font-size: 0.275rem;
-    padding-top: 2.44%;
-    padding-left: 4%;
-    // height: 16.7%;
+    font-size: 30px;
+    margin: 8px 0 0 10px;
+
+    font-family: "PingFang SC-Bold, PingFang SC";
   }
   .content {
     flex: 1;

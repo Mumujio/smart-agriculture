@@ -86,7 +86,7 @@ const chartOpen = () => {
         type: "pie",
         data: [
           {
-            value: 3,
+            value: props?.projectData?.airTmp?.airTemp?.toFixed(1) || 0,
             itemStyle: {
               color: "#3383FF",
             },
@@ -115,7 +115,7 @@ const chartOpen = () => {
       top: "center",
       textStyle: {
         color: "#ffffff",
-        fontSize: (13 * window.innerWidth) / 1920,
+        fontSize: (17 * window.innerWidth) / 1920,
       },
     },
     series: [
@@ -123,7 +123,7 @@ const chartOpen = () => {
         type: "pie",
         data: [
           {
-            value: 1.2,
+            value: props?.projectData?.airTmp?.airTemp?.toFixed(1) || 0,
             itemStyle: {
               color: "#3383FF",
             },
@@ -160,7 +160,7 @@ const chartOpen = () => {
         type: "pie",
         data: [
           {
-            value: 3,
+            value: props?.projectData?.airTmp?.airTemp?.toFixed(1) || 0,
             itemStyle: {
               color: "#3383FF",
             },
@@ -195,7 +195,7 @@ const chartOpen = () => {
         type: "pie",
         data: [
           {
-            value: 1.3,
+            value: props?.projectData?.airTmp?.airTemp?.toFixed(1) || 0,
             itemStyle: {
               color: "#3383FF",
             },
@@ -231,7 +231,7 @@ const chartOpen = () => {
         type: "pie",
         data: [
           {
-            value: 1.2,
+            value: props?.projectData?.airTmp?.airTemp?.toFixed(1) || 0,
             itemStyle: {
               color: "#3383FF",
             },
@@ -309,6 +309,8 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: rgba(245, 246, 250, 0.1);
+  border-radius: 6px 6px 6px 6px;
   header {
     display: flex;
     align-items: center;
@@ -316,35 +318,40 @@ onMounted(() => {
 
     width: 100%;
     ::v-deep .header-select {
-      max-width: 1.9rem;
-      min-width: 1.8rem;
+      max-width: 180px;
+      // min-width: 1.8rem;
+      margin-right: 35px;
 
       .el-input__wrapper {
         background-color: rgb(39, 41, 46);
         border: none !important;
         box-shadow: none !important;
+        width: 151px;
+        height: 35px;
         .el-input__inner {
           color: white;
           border: none !important;
           box-shadow: none !important;
+          font-size: 21px;
+          font-weight: 400;
+          color: #ffffff;
+          text-align: center;
         }
       }
     }
     h2 {
-      min-width: 1.4rem;
-      color: white;
+      color: #ffffff;
       font-weight: bold;
-      font-size: 0.275rem;
-      // height: 16.67%;
+      font-size: 30px;
+      margin: 5px 0 0 10px;
     }
   }
 
   .content {
     display: flex;
     align-items: center;
-    height: 58.89%;
-    padding-left: 4.44%;
-    padding-right: 2%;
+    flex: 1;
+
     .airTem {
       flex: 1;
       height: 100%;
@@ -369,12 +376,11 @@ onMounted(() => {
   .text {
     // flex: 1;
     display: flex;
-    font-size: 0.1875rem;
+    font-size: 20px;
     color: #ffffff;
     text-align: center;
-    padding-left: 4.44%;
-    padding-right: 2%;
     font-weight: 400;
+    margin-bottom: 15px;
     div {
       width: 100%;
     }
