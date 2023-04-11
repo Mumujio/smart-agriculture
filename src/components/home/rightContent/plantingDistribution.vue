@@ -114,7 +114,7 @@ onMounted(() => {
   flex-direction: column;
   justify-content: center;
   width: 570px;
-  height: 310px;
+  height: 100%;
   background-color: rgba(245, 246, 250, 0.1);
   border-radius: 6px 6px 6px 6px;
   h2 {

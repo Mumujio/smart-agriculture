@@ -46,7 +46,7 @@ export const requestProjectData = (path) => {
 
 export const requestLoginInfo = (data) => {
     return requestLogin({
-        url: 'http://121.36.5.157:5000/user/login',
+        url: 'http://g44w8f.natappfree.cc',
         method: 'post',
         data
     })

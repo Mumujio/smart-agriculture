@@ -43,7 +43,7 @@ export default class Resources extends EventEmitter {
     // 如果没有资源需要加载，也准备好
     if (this.toLoad == 0) {
       setTimeout(() => {
-        console.log("sourceReady");
+      
         this.trigger("sourceReady");
         return;
       }, 100);

@@ -1,14 +1,9 @@
 <template>
-  <!-- <flop></flop> -->
-  <div class="center" id="echarts">
-    <!-- <earth></earth> -->
-  </div>
+  <div class="all"><div id="echarts" style="height: 100%"></div></div>
 </template>
 
 <script setup>
-// import earth from "./earth.vue";
 import { onMounted, getCurrentInstance } from "vue";
-import flop from "./flopContent2.vue";
 import * as echarts from "echarts";
 import { requestHuBeiData } from "@/request/requests";
 
@@ -116,13 +111,14 @@ let convertData = function (data) {
   // 有数据的地区的名称和value值
   return res;
 };
+
 onMounted(() => {
   requestHuBeiData("./hubei.json").then((res) => {
     echarts.registerMap("hubei", res.data);
     mychart = echarts.init(document.querySelector("#echarts"));
 
     mychart.setOption({
-      backgroundColor: "#000",
+      backgroundColor: "transparent",
       geo: {
         show: true,
         map: "hubei",
@@ -266,15 +262,8 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.center {
-  color: white;
+.all {
   height: 100%;
   width: 100%;
-
-  flex-direction: column;
-  .main {
-    display: flex;
-    flex-direction: column;
-  }
 }
 </style>

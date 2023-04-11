@@ -25,7 +25,7 @@ export default class Time extends EventEmitter
         this.current = currentTime
         // 单位秒
         this.elapsed = (this.current - this.start) / 1000
-        // console.log(this.elapsed);
+       
         
 
         this.trigger('tick')

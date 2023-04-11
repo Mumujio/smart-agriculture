@@ -1,30 +1,7 @@
 <template>
   <div class="all">
     <div class="all-container">
-      <div class="head">
-        <div class="text">水肥一体化精准控制云平台</div>
-        <div class="head-right">
-          <div class="select">
-            <el-select v-model="select_value" class="selectA" size="large">
-              <el-option
-                v-for="item in [
-                  { label: '宜昌富农大棚1号', value: '宜昌富农大棚1号' },
-                  { label: '宜昌富农大棚2号', value: '宜昌富农大棚2号' },
-                  { label: '宜昌富农大棚3号', value: '宜昌富农大棚3号' },
-                ]"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div>
-          <div class="icon">
-            <el-icon style="font-size: 40px; color: white; height: 100%"
-              ><User
-            /></el-icon>
-          </div>
-        </div>
-      </div>
+      <topBar></topBar>
       <div class="content">
         <div class="content-left">
           <div class="content-left-top">
@@ -37,7 +14,10 @@
               </div>
               <div class="dayData"><devStatis></devStatis></div>
             </div>
-            <div class="content-left-top-right"><equipMon></equipMon></div>
+
+            <div class="content-left-top-right">
+              <equipMon></equipMon>
+            </div>
           </div>
 
           <div class="lightIntensity" :projectData="projectData">
@@ -72,11 +52,11 @@ import equipMon from "@/components/home/leftContent/equipmentMonitor.vue";
 import { reactive, provide } from "@vue/reactivity";
 import { requestProjectData } from "@/request/requests";
 import { ref, onMounted } from "vue";
-import { User } from "@element-plus/icons-vue";
+import topBar from "@/components/topBar.vue";
 const projectData = reactive({});
 const flag = ref(false);
 const envDetection1 = ref(null);
-const select_value = ref("宜昌富农大棚1号");
+
 // onMounted(() => {
 //   getData();
 // });
@@ -124,46 +104,6 @@ const select_value = ref("宜昌富农大棚1号");
   display: flex;
   flex-direction: column;
 
-  .head {
-    text-align: center;
-
-    height: 144px;
-    .text {
-      margin: 30px 0 60px 0;
-      font-size: 39px;
-      letter-spacing: 20px;
-      font-weight: bold;
-      color: #ffffff;
-      font-family: "PingFang SC-Bold";
-    }
-    &-right {
-      position: absolute;
-      top: 37px;
-      right: 24px;
-      display: flex;
-      .select {
-        margin-right: 30px;
-        ::v-deep .selectA {
-          max-width: 300px;
-          .el-input__wrapper {
-            background-color: transparent;
-            border: none !important;
-            box-shadow: none !important;
-            padding: 0;
-
-            .el-input__inner {
-              color: #ffffff;
-              font-size: 29px;
-              font-weight: 400;
-              border: none !important;
-              box-shadow: none !important;
-              text-align: right;
-            }
-          }
-        }
-      }
-    }
-  }
   .content {
     flex: 1;
     display: flex;
@@ -177,7 +117,7 @@ const select_value = ref("宜昌富农大棚1号");
       flex-direction: column;
       justify-content: space-between;
       &-top {
-        height: 473px;
+        height: 54%;
         display: flex;
         justify-content: space-between;
         &-left {
@@ -188,17 +128,26 @@ const select_value = ref("宜昌富农大棚1号");
           .envDetection {
             width: 100%;
 
-            height: 240px;
+            height: 50%;
           }
           .dayData {
             width: 100%;
 
-            height: 213px;
+            height: 45%;
           }
         }
         &-right {
           width: 616px;
+          .equipMon {
+            height: 20%;
+          }
+          .formData {
+            height: 80%;
+          }
         }
+      }
+      .lightIntensity {
+        height: 43%;
       }
     }
     .content-center {
@@ -210,7 +159,12 @@ const select_value = ref("宜昌富农大棚1号");
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
+      .plantDis {
+        height: 35%;
+      }
+      .weather {
+        height: 62%;
+      }
       // .weather {
       //   height: 40.84%;
       // }

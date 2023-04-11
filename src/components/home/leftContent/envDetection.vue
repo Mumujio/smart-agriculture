@@ -45,6 +45,7 @@ import {
   ref,
   getCurrentInstance,
   defineProps,
+  onBeforeUnmount,
 } from "vue";
 let echarts = inject("echarts");
 let select_value = ref("1号节点");
@@ -70,7 +71,6 @@ const chartPrepare = () => {
   soilHumChart = echarts.init(document.querySelector(".soilHum"));
 };
 const chartOpen = () => {
-  console.log("被触发");
   chart.airTemOption = {
     title: {
       text: `${props?.projectData?.airTmp?.airTemp?.toFixed(1) || 0}` + "℃",
@@ -301,6 +301,13 @@ onMounted(() => {
     chartOpen();
   });
 });
+onBeforeUnmount(() => {
+  airTemChart.dispose();
+  soilTemChart.dispose();
+  lightChart.dispose();
+  airHumChart.dispose();
+  soilHumChart.dispose();
+});
 </script>
 
 <style lang="less" scoped>
@@ -336,6 +343,7 @@ onMounted(() => {
           font-weight: 400;
           color: #ffffff;
           text-align: center;
+          height: auto;
         }
       }
     }

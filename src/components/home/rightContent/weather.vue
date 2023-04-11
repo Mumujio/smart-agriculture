@@ -197,7 +197,6 @@ onMounted(() => {
   chartPrepare();
   setTimeout(() => {
     chartOpen();
-    console.log(option.weatherCurrentInfo);
   }, 1000);
   window.addEventListener("resize", () => {
     mychart.resize();
@@ -208,7 +207,7 @@ onMounted(() => {
 <style lang="less" scoped>
 .all {
   width: 570px;
-  height: 544px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -233,7 +232,7 @@ onMounted(() => {
       display: flex;
       // height: 38.68%;
       width: 100%;
-      height: 141px;
+      flex: 1;
       justify-content: center;
       .header-text {
         display: flex;
@@ -259,7 +258,7 @@ onMounted(() => {
       display: flex;
       align-items: center;
       margin: 55px 39px 8px 39px;
-      height: 110px;
+      flex: 1;
       width: 100%;
       .center-item {
         flex: 1;

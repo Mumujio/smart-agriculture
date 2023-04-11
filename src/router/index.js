@@ -7,7 +7,13 @@ const routes = [{
     },
     {
         path: "/",
-        redirect: "/home",
+        redirect: "/index",
+    },
+    {
+        path: '/index',
+        name:'index',
+        component:() =>
+        import ('../views/Index.vue')
     },
     {
         path: '/login',
@@ -23,4 +29,11 @@ const router = createRouter({
     routes
 })
 
+router.beforeEach((to, from,next) => {
+    // const testRouteName = ['home', 'index']
+    let  islogin
+    localStorage.getItem('login')?islogin=true:islogin=false
+    if (to.name !== 'login' && !islogin) next({ name: 'login' })
+    else next()
+  })
 export default router

@@ -8,6 +8,8 @@ import './assets/css/common.css'
 import 'element-plus/dist/index.css'
 import mitt from 'mitt'
 import '@/utils/rem'
+
+
 //引用插件
 // import "lib-flexible/flexible"
 

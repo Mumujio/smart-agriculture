@@ -29,7 +29,7 @@ export default class Raycaster extends EventEmitter {
 
       // 保存待检测的地球部分
       let shouldIntersect = this.experience.world.earth.model.scene.children
-      console.log(shouldIntersect);
+     
       
       let intersects = this.raycaster.instance.intersectObjects(
         shouldIntersect,

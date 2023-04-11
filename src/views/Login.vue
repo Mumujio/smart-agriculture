@@ -43,10 +43,13 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
+import { reactive, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { Lock, User } from "@element-plus/icons-vue";
+import { ElMessage } from "element-plus";
 import { requestLoginInfo } from "@/request/requests.js";
+import { ElNotification } from "element-plus";
+
 const form = reactive({
   email: "",
   password: "",
@@ -54,15 +57,41 @@ const form = reactive({
 });
 const router = useRouter();
 const login = () => {
-  requestLoginInfo(form).then((res) => {
-    if (res.data.status == "登陆成功") {
-      router.push("/home");
-    } else {
-      form.email = "";
-      form.password = "";
-    }
-  });
+  // requestLoginInfo(form).then((res) => {
+  //   if (res.data.status == "登陆成功") {
+  //     router.push("/home");
+  //   } else {
+  //     form.email = "";
+  //     form.password = "";
+  //   }
+  // });
+
+  // 弄一个假的
+  if (form.email == 123 && form.password == 123) {
+    // 弄一个假的token
+    localStorage.setItem("login", "ehioioHEegiowgh4oio");
+    router.push("/index");
+    ElMessage({
+      type: "success",
+      message: "登录成功",
+      duration: 5000,
+    });
+  } else {
+    ElMessage({
+      type: "error",
+      message: "登录失败",
+      duration: 5000,
+    });
+  }
 };
+onMounted(() => {
+  // 提示游客账号
+  ElNotification({
+    title: "提示",
+    message: "游客账号————账号：123 ; 密码：123",
+    position: "top-left",
+  });
+});
 </script>
 <style scoped lang="less">
 .login {
@@ -92,6 +121,7 @@ const login = () => {
       text-shadow: 0px 5px 8px #3383ff;
       margin-bottom: 31px;
       font-family: "PingFang SC-Bold";
+      padding: 0;
     }
     &-formBox {
       width: 540px;

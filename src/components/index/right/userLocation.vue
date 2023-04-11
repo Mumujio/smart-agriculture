@@ -102,19 +102,15 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .all {
-  height: 100%;
+  height: 32%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  h2 {
-    color: white;
-    font-weight: bold;
-    font-size: 0.275rem;
-    padding-top: 2.44%;
-    padding-left: 4%;
-    // height: 16.7%;
-  }
+  background: rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.08);
+  border-radius: 8px 8px 8px 8px;
   .content {
     flex: 1;
   }
