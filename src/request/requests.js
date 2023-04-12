@@ -46,7 +46,7 @@ export const requestProjectData = (path) => {
 
 export const requestLoginInfo = (data) => {
     return requestLogin({
-        url: 'http://g44w8f.natappfree.cc',
+        url: 'http://jfdt5t.natappfree.cc/user/login',
         method: 'post',
         data
     })

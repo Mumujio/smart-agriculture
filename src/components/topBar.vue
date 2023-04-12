@@ -3,7 +3,7 @@
     <div class="text">水肥一体化精准控制云平台</div>
 
     <div class="tabsContent">
-      <el-tabs v-model="activeName" class="demo-tabs" @tab-change="handleClick">
+      <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
         <el-tab-pane label="首页" name="first"></el-tab-pane>
         <el-tab-pane label="设备检测" name="second"></el-tab-pane>
         <el-tab-pane label="设备控制" name="third"></el-tab-pane>
@@ -42,11 +42,14 @@ const select_value = ref("宜昌富农大棚1号");
 const activeName = ref("first");
 const router = useRouter();
 const route = useRoute();
-const handleClick = (TabPaneName) => {
+const handleClick = (TabsPaneContext) => {
+  let TabPaneName = TabsPaneContext.props.name;
   if (TabPaneName == "first") {
     router.push("/index");
   } else if (TabPaneName == "second") {
     router.push("/home");
+  } else if (TabPaneName == "third") {
+    router.push("/control");
   }
 };
 onMounted(() => {
@@ -54,6 +57,8 @@ onMounted(() => {
     activeName.value = "second";
   } else if (route.name == "index") {
     activeName.value = "first";
+  } else if (route.name == "control") {
+    activeName.value = "third";
   }
 });
 </script>
@@ -98,13 +103,19 @@ onMounted(() => {
 
       text-shadow: 0px 0px 7px #20bdff;
     }
-    /deep/ .el-table__row > td {
-      border: none;
+    /deep/ .el-tabs__item + .is-active {
+      color: #f5f6fa;
+      line-height: 45px;
+      font-weight: 400;
+      text-shadow: 0px 0px 7px #20bdff;
     }
+    // /deep/ .el-table__row > td {
+    //   border: none;
+    // }
 
-    /deep/ .el-table::before {
-      height: 0px;
-    }
+    // /deep/ .el-table::before {
+    //   height: 0px;
+    // }
 
     :deep(.el-table__header .cell) {
       font-size: 20px;

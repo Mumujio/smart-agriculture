@@ -173,7 +173,4 @@ const envDetection1 = ref(null);
     }
   }
 }
-.dv-border-box-1 {
-  z-index: -999;
-}
 </style>

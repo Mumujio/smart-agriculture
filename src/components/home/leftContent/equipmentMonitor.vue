@@ -11,7 +11,7 @@
             prop="time"
             label="最近一次检测时间"
             align="center"
-            width="350"
+            width="300"
           />
         </el-table>
       </div>

@@ -57,16 +57,7 @@ const form = reactive({
 });
 const router = useRouter();
 const login = () => {
-  // requestLoginInfo(form).then((res) => {
-  //   if (res.data.status == "登陆成功") {
-  //     router.push("/home");
-  //   } else {
-  //     form.email = "";
-  //     form.password = "";
-  //   }
-  // });
-
-  // 弄一个假的
+  // 游客登录
   if (form.email == 123 && form.password == 123) {
     // 弄一个假的token
     localStorage.setItem("login", "ehioioHEegiowgh4oio");
@@ -74,13 +65,22 @@ const login = () => {
     ElMessage({
       type: "success",
       message: "登录成功",
-      duration: 5000,
+      duration: 2000,
     });
   } else {
-    ElMessage({
-      type: "error",
-      message: "登录失败",
-      duration: 5000,
+    requestLoginInfo(form).then((res) => {
+      if (res.data.status == "登陆成功") {
+        localStorage.setItem("login", "ehioioHEegiowgh4oio");
+        router.push("/home");
+      } else {
+        ElMessage({
+          type: "error",
+          message: "登录失败",
+          duration: 2000,
+        });
+        form.email = "";
+        form.password = "";
+      }
     });
   }
 };
@@ -88,7 +88,7 @@ onMounted(() => {
   // 提示游客账号
   ElNotification({
     title: "提示",
-    message: "游客账号————账号：123 ; 密码：123",
+    message: "游客体验账号————账号：123 ; 密码：123",
     position: "top-left",
   });
 });
