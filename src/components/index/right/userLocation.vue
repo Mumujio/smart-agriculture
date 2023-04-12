@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { inject, onMounted, reactive, ref, getCurrentInstance } from "vue";
+import { inject, onMounted, reactive, ref, onBeforeUnmount } from "vue";
 let echarts = inject("echarts");
 
 const myChartDom = ref(null);
@@ -93,10 +93,17 @@ const chartOpen = () => {
 onMounted(() => {
   chartPrepare();
   chartOpen();
-  window.addEventListener("resize", () => {
-    mychart.resize();
-    chartOpen();
-  });
+  window.addEventListener("resize", resize);
+});
+function resize() {
+  mychart.resize();
+  chartOpen();
+}
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", resize);
+
+  mychart.dispose();
+  mychart = null;
 });
 </script>
 

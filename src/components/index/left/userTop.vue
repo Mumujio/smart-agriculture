@@ -80,6 +80,7 @@ const tableData = [
 .all {
   height: 48.8%;
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   position: relative;
@@ -98,6 +99,12 @@ const tableData = [
   }
   .content {
     flex: 1;
+    // position: relative;
+    // width: 100%;
+    // > div {
+    //   position: absolute;
+    //   width: 100%;
+    // }
     .el-table {
       background-color: transparent;
       color: #ffffff;
@@ -120,6 +127,25 @@ const tableData = [
     }
     /deep/.el-table tr {
       background-color: transparent;
+      .cell {
+        color: #ffffff;
+        line-height: 20px;
+        font-size: 15px;
+      }
+    }
+    :deep(.el-scrollbar__view) {
+      width: 100%;
+    }
+    :deep(.el-table__body) {
+      width: auto !important;
+    }
+    :deep(.el-table__header) {
+      width: auto !important;
+      .cell {
+        font-size: 20px;
+        color: #f5f6fa;
+        line-height: 20px;
+      }
     }
   }
 }

@@ -44,7 +44,6 @@ import {
   reactive,
   ref,
   getCurrentInstance,
-  defineProps,
   onBeforeUnmount,
 } from "vue";
 let echarts = inject("echarts");
@@ -292,21 +291,28 @@ const change = (val) => {
 onMounted(() => {
   chartPrepare();
   chartOpen();
-  window.addEventListener("resize", () => {
-    airTemChart.resize();
-    soilTemChart.resize();
-    lightChart.resize();
-    airHumChart.resize();
-    soilHumChart.resize();
-    chartOpen();
-  });
+  window.addEventListener("resize", resize);
 });
+function resize() {
+  airTemChart.resize();
+  soilTemChart.resize();
+  lightChart.resize();
+  airHumChart.resize();
+  soilHumChart.resize();
+}
 onBeforeUnmount(() => {
+  window.removeEventListener("resize", resize);
+
   airTemChart.dispose();
   soilTemChart.dispose();
   lightChart.dispose();
   airHumChart.dispose();
   soilHumChart.dispose();
+  airTemChart = null;
+  soilTemChart = null;
+  lightChart = null;
+  airHumChart = null;
+  soilHumChart = null;
 });
 </script>
 

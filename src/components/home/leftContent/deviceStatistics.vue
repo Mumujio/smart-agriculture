@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { inject, onMounted, reactive, ref } from "vue";
+import { inject, onMounted, reactive, ref, onBeforeUnmount } from "vue";
 let echarts = inject("echarts");
 const mychartDom = ref(null);
 let mychart = null;
@@ -47,16 +47,17 @@ const chartOpen = () => {
         labelLine: {
           show: false,
         },
-        emphasis: {
-          label: {
-            show: true,
-            fontSize: (18 * window.innerWidth) / 1920,
-            fontWeight: "bold",
-          },
-        },
+        // emphasis: {
+        //   label: {
+        //     show: true,
+        //     fontSize: (18 * window.innerWidth) / 1920,
+        //     fontWeight: "bold",
+        //   },
+        // },
       },
     ],
     legend: {
+      type: "plain",
       orient: "vertical",
       top: "center",
       left: (50 * window.innerWidth) / 1920,
@@ -69,7 +70,7 @@ const chartOpen = () => {
       itemWidth: (17 * window.innerWidth) / 1920,
       itemHeight: (17 * window.innerHeight) / 1080,
       itemGap: (17 * window.innerHeight) / 1080,
-      data: ["灌溉类", "传感器", "步进电机"],
+      // data: ["灌溉类", "传感器", "步进电机"],
       formatter: function (name) {
         let arrValue = 0;
         data.forEach((item) => {
@@ -92,10 +93,16 @@ const chartOpen = () => {
 onMounted(() => {
   chartPrepare();
   chartOpen();
-  window.addEventListener("resize", () => {
-    mychart.resize();
-    chartOpen();
-  });
+  window.addEventListener("resize", resize);
+});
+function resize() {
+  mychart.resize();
+  chartOpen();
+}
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", resize);
+  mychart.dispose();
+  mychart = null;
 });
 </script>
 

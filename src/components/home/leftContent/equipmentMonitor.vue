@@ -5,22 +5,13 @@
       <div class="content-top" ref="myTopChartDom"></div>
       <div class="content-bottom">
         <el-table :data="tableData" stripe style="width: 100%">
-          <el-table-column
-            prop="name"
-            label="节点名称"
-            width="100"
-            align="center"
-          />
-          <el-table-column
-            prop="status"
-            label="节点状态"
-            width="100"
-            align="center"
-          />
+          <el-table-column prop="name" label="节点名称" align="center" />
+          <el-table-column prop="status" label="节点状态" align="center" />
           <el-table-column
             prop="time"
             label="最近一次检测时间"
             align="center"
+            width="350"
           />
         </el-table>
       </div>
@@ -29,7 +20,7 @@
 </template>
 
 <script setup>
-import { inject, onMounted, reactive, ref, getCurrentInstance } from "vue";
+import { inject, onMounted, reactive, ref, onBeforeUnmount } from "vue";
 let echarts = inject("echarts");
 
 let myTopChartDom = ref(null);
@@ -99,6 +90,7 @@ const chartTop = reactive({
         show: false,
       },
       axisLabel: {
+        // show: false,
         fontSize: (14 * window.innerWidth) / 1920,
         fontWeight: 400,
         color: "#ffffff",
@@ -127,6 +119,7 @@ const chartTop = reactive({
         label: {
           show: true,
           position: "right",
+
           valueAnimation: true,
           fontSize: (18 * window.innerWidth) / 1920,
           fontWeight: 400,
@@ -147,8 +140,9 @@ const chartTop = reactive({
     grid: {
       containLabel: true,
       left: "3%",
-      height: 100,
+      height: (80 * window.innerHeight) / 1920,
       top: "middle",
+      bottom: 0,
     },
   },
 });
@@ -168,11 +162,16 @@ const chartOpen = () => {
 onMounted(() => {
   chartPrepare();
   chartOpen();
-  window.addEventListener("resize", () => {
-    mycharTop.resize();
-    // mycharBot.resize();
-    chartOpen();
-  });
+  window.addEventListener("resize", resize);
+});
+function resize() {
+  mycharTop.resize();
+}
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", resize);
+
+  mycharTop.dispose();
+  mycharTop = null;
 });
 </script>
 
@@ -190,8 +189,6 @@ onMounted(() => {
     font-weight: bold;
     font-size: 30px;
     margin: 8px 0 13px 10px;
-
-    font-family: "PingFang SC-Bold, PingFang SC";
   }
   .content {
     flex: 1;
@@ -227,18 +224,28 @@ onMounted(() => {
       }
       /deep/.el-table tr {
         background-color: transparent;
+
+        .cell {
+          color: #ffffff;
+          line-height: 20px;
+          font-size: 15px;
+        }
+      }
+      :deep(.el-scrollbar__view) {
+        width: 100%;
+      }
+      :deep(.el-table__body) {
+        width: auto !important;
+      }
+      :deep(.el-table__header) {
+        width: auto !important;
+        .cell {
+          font-size: 20px;
+          color: #f5f6fa;
+          line-height: 20px;
+        }
       }
     }
   }
-}
-</style>
-<style lang="less">
-.content-bottom {
-  // .el-table {
-  //   background-color: transparent;
-  // }
-  // .el-table__expanded-cell {
-  //   background-color: transparent;
-  // }
 }
 </style>

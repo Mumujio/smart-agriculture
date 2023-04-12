@@ -40,12 +40,8 @@
 
 <script setup>
 import envDetection from "../components/home/leftContent/envDetection.vue";
-// import dayData from "../components/home/leftContent/dayData.vue";
 import lightIntensity from "../components/home/leftContent/lightIntensity.vue";
 import weather from "../components/home/rightContent/weather.vue";
-// import device from "../components/home/rightContent/device.vue";
-// import dynamic from "../components/home/rightContent/dynamic.vue";
-// import center from "@/components/home/centerContent/main.vue";
 import plantDis from "@/components/home/rightContent/plantingDistribution.vue";
 import devStatis from "@/components/home/leftContent/deviceStatistics.vue";
 import equipMon from "@/components/home/leftContent/equipmentMonitor.vue";

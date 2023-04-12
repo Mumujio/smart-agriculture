@@ -1,9 +1,11 @@
 <template>
-  <div class="all"><div id="echarts" style="height: 100%"></div></div>
+  <div class="all" v-loading="loading">
+    <div id="echarts" style="height: 100%"></div>
+  </div>
 </template>
 
 <script setup>
-import { onMounted, getCurrentInstance } from "vue";
+import { onMounted, ref, onBeforeUnmount } from "vue";
 import * as echarts from "echarts";
 import { requestHuBeiData } from "@/request/requests";
 
@@ -94,7 +96,7 @@ let data = [
     value: 5,
   },
 ];
-
+let loading = ref(true);
 // const { ctx } = getCurrentInstance();
 // ctx.$EventBus.emit("change_personNum", data);
 let convertData = function (data) {
@@ -114,6 +116,7 @@ let convertData = function (data) {
 
 onMounted(() => {
   requestHuBeiData("./hubei.json").then((res) => {
+    loading.value = false;
     echarts.registerMap("hubei", res.data);
     mychart = echarts.init(document.querySelector("#echarts"));
 
@@ -255,9 +258,15 @@ onMounted(() => {
     });
   });
 
-  window.addEventListener("resize", () => {
-    mychart.resize();
-  });
+  window.addEventListener("resize", resize);
+});
+function resize() {
+  mychart.resize();
+}
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", resize);
+  mychart.dispose();
+  mychart = null;
 });
 </script>
 
@@ -265,5 +274,8 @@ onMounted(() => {
 .all {
   height: 100%;
   width: 100%;
+}
+:deep(.el-loading-mask) {
+  background-color: transparent;
 }
 </style>

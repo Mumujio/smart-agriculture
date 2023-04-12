@@ -1,18 +1,28 @@
+@font-face {
+    font-family: "PingFang SC-Bold";
+    src:  url("../../../public/static/PingFang Bold.ttf") format("truetype")
+}
+@font-face {
+    font-family: "PingFang SC-Regular";
+    src:  url("../../../public/static/PingFang Regular.ttf") format("truetype")
+}
 *{
     padding: 0;
     margin: 0;
+    box-sizing: content-box;
+    font-family: "PingFang SC-Regular";
 }
 canvas {
-
     height: 100%;
   }
 
 h2{
     font-size: 30px;
-    font-family: PingFang SC-Bold, PingFang SC;
     font-weight: bold;
     color: #ffffff;
     text-shadow: 0px 0px 6px #20bdff;
     padding-top: 2.44%;
     padding-left: 4%;
+    font-family: "PingFang SC-Bold" !important;
+   
 }

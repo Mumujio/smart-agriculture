@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { inject, onMounted, reactive, ref, getCurrentInstance } from "vue";
+import { inject, onMounted, reactive, ref, onBeforeUnmount } from "vue";
 let echarts = inject("echarts");
 
 const myChartDom = ref(null);
@@ -51,16 +51,17 @@ const chartOpen = () => {
         type: "category",
         // boundaryGap: true,
         data: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月"],
+        nameTextStyle: {
+          fontSize: (12 * window.innerWidth) / 1920,
+        },
       },
     ],
     yAxis: [
       {
         type: "value",
-        // scale: true,
-        // name: "Price",
-        // max: 16,
-        // min: 0,
-        // boundaryGap: [0.2, 0.2],
+        nameTextStyle: {
+          fontSize: (12 * window.innerWidth) / 1920,
+        },
       },
     ],
     series: [
@@ -83,10 +84,17 @@ const chartOpen = () => {
 onMounted(() => {
   chartPrepare();
   chartOpen();
-  window.addEventListener("resize", () => {
-    mychart.resize();
-    chartOpen();
-  });
+  window.addEventListener("resize", resize);
+});
+
+function resize() {
+  mychart.resize();
+}
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", resize);
+
+  mychart.dispose();
+  mychart = null;
 });
 </script>
 <style scoped lang="less">

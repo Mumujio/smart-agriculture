@@ -38,7 +38,14 @@ import {
   requestCurrentWeatherInfo,
   requestFutureWeatherInfo,
 } from "../../../request/requests";
-import { reactive, onMounted, computed, ref, inject } from "vue";
+import {
+  reactive,
+  onMounted,
+  computed,
+  ref,
+  inject,
+  onBeforeUnmount,
+} from "vue";
 // 时间实例
 
 // 天气接口数据
@@ -146,7 +153,7 @@ const chartOpen = () => {
         label: {
           show: true,
           position: "top",
-          fontSize: 15,
+          fontSize: (19 * window.innerWidth) / 1920,
           fontWeight: 400,
           color: "#ffffff",
         },
@@ -170,7 +177,7 @@ const chartOpen = () => {
         label: {
           show: true,
           position: "bottom",
-          fontSize: 15,
+          fontSize: (19 * window.innerWidth) / 1920,
           fontWeight: 400,
           color: "#ffffff",
         },
@@ -181,9 +188,12 @@ const chartOpen = () => {
     ],
     grid: {
       // height: "80%",
-      width: "115%",
+      width: "100%",
       // top: "-20%",
       left: "center",
+      top: "center",
+      // y: "10%",
+      // y2: "10%",
     },
   };
   mychart.setOption(chart.option);
@@ -191,16 +201,25 @@ const chartOpen = () => {
 
 // 传递父级
 const emits = defineEmits(["weatherComponentReady"]);
-onMounted(() => {
-  getNowTime();
-  getWeatherInfo();
+onMounted(async () => {
+  // getNowTime();
+  await getWeatherInfo();
   chartPrepare();
-  setTimeout(() => {
-    chartOpen();
-  }, 1000);
-  window.addEventListener("resize", () => {
-    mychart.resize();
-  });
+
+  chartOpen();
+
+  window.addEventListener("resize", resize);
+});
+function resize() {
+  mychart.resize();
+  chartOpen();
+}
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", resize);
+  if (mychart) {
+    mychart.dispose();
+    mychart = null;
+  }
 });
 </script>
 

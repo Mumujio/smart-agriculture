@@ -74,6 +74,7 @@ onMounted(() => {
     text-align: start;
     text-shadow: 0px 5px 8px #3383ff;
     color: #f5f6fa;
+    font-family: "PingFang SC-Bold";
   }
   .tabsContent {
     align-self: self-end;
@@ -88,6 +89,7 @@ onMounted(() => {
       font-weight: 400;
       color: rgba(161, 167, 196, 1);
       line-height: 45px;
+      font-family: "PingFang SC-Regular";
     }
     /deep/ .el-tabs__item:hover {
       font-weight: 400;
@@ -102,6 +104,10 @@ onMounted(() => {
 
     /deep/ .el-table::before {
       height: 0px;
+    }
+
+    :deep(.el-table__header .cell) {
+      font-size: 20px;
     }
   }
   &-right {
@@ -132,6 +138,7 @@ onMounted(() => {
             border: none !important;
             box-shadow: none !important;
             text-align: right;
+            font-family: "PingFang SC-Bold";
           }
         }
       }
