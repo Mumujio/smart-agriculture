@@ -46,17 +46,24 @@ import plantDis from "@/components/home/rightContent/plantingDistribution.vue";
 import devStatis from "@/components/home/leftContent/deviceStatistics.vue";
 import equipMon from "@/components/home/leftContent/equipmentMonitor.vue";
 import { reactive, provide } from "@vue/reactivity";
-import { requestProjectData } from "@/request/requests";
+import { requestProjectData, getUserInfos } from "@/request/requests";
 import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
 import topBar from "@/components/topBar.vue";
 const projectData = reactive({});
 const flag = ref(false);
 const envDetection1 = ref(null);
-
-// onMounted(() => {
-//   getData();
-// });
-
+const route = useRoute();
+onMounted(() => {
+  // getData();
+  getUserInfo();
+});
+function getUserInfo() {
+  // const email = route.params.email;
+  // getUserInfos(email).then((res) => {
+  //   console.log(res);
+  // });
+}
 // function getData() {
 //   requestProjectData("subscribeSoilEnv").then(() => {
 //     requestProjectData("getSoilEnv").then((res) => {

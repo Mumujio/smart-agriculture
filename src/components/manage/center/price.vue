@@ -98,14 +98,6 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  h2 {
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 30px;
-    // height: 13.54%;
-    letter-spacing: 6px;
-    margin: 10px 0 0 16px;
-  }
   .content {
     flex: 1;
   }

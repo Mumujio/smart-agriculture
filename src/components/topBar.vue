@@ -47,7 +47,8 @@ const handleClick = (TabsPaneContext) => {
   if (TabPaneName == "first") {
     router.push("/index");
   } else if (TabPaneName == "second") {
-    router.push("/home");
+    let email = localStorage.getItem("login");
+    router.push(`/home/${email}`);
   } else if (TabPaneName == "third") {
     router.push("/control");
   } else if (TabPaneName == "fourth") {

@@ -52,6 +52,14 @@ export const requestLoginInfo = (data) => {
     })
 }
 
+export const getUserInfos = (data) => {
+    return requestLogin({
+        url: 'http://jfdt5t.natappfree.cc/api/getUserInfo',
+        method: 'post',
+        data
+    })
+}
+
 
 
 

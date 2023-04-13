@@ -60,8 +60,8 @@ const login = () => {
   // 游客登录
   if (form.email == 123 && form.password == 123) {
     // 弄一个假的token
-    localStorage.setItem("login", "ehioioHEegiowgh4oio");
-    router.push("/index");
+    localStorage.setItem("login", "123");
+    router.push(`/index`);
     ElMessage({
       type: "success",
       message: "登录成功",
@@ -70,8 +70,8 @@ const login = () => {
   } else {
     requestLoginInfo(form).then((res) => {
       if (res.data.status == "登陆成功") {
-        localStorage.setItem("login", "ehioioHEegiowgh4oio");
-        router.push("/home");
+        localStorage.setItem("login", email);
+        router.push("/index");
       } else {
         ElMessage({
           type: "error",
