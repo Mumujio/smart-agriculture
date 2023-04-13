@@ -50,6 +50,8 @@ const handleClick = (TabsPaneContext) => {
     router.push("/home");
   } else if (TabPaneName == "third") {
     router.push("/control");
+  } else if (TabPaneName == "fourth") {
+    router.push("/manage");
   }
 };
 onMounted(() => {
@@ -59,6 +61,8 @@ onMounted(() => {
     activeName.value = "first";
   } else if (route.name == "control") {
     activeName.value = "third";
+  } else if (route.name == "manage") {
+    activeName.value = "fourth";
   }
 });
 </script>

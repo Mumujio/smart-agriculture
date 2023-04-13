@@ -26,6 +26,12 @@ const routes = [{
         name: 'control',
         component: () =>
             import ('../views/Control.vue')
+    },
+    {
+        path: '/manage',
+        name: 'manage',
+        component: () =>
+            import ('../views/Manage.vue')
     }
 ]
 
