@@ -1,0 +1,26 @@
+<svg id="组_3138" data-name="组 3138" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70" height="70" viewBox="0 0 70 70">
+  <defs>
+    <filter id="椭圆_127">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="12.5" result="blur"/>
+      <feFlood flood-color="#20bdff" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g data-type="innerShadowGroup">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#椭圆_127)" style="mix-blend-mode: lighten;isolation: isolate">
+      <circle id="椭圆_127-2" data-name="椭圆 127" cx="35" cy="35" r="35" fill="#fff"/>
+    </g>
+    <g id="椭圆_127-3" data-name="椭圆 127" fill="none" stroke="#0387bf" stroke-width="2" style="mix-blend-mode: lighten;isolation: isolate">
+      <circle cx="35" cy="35" r="35" stroke="none"/>
+      <circle cx="35" cy="35" r="34" fill="none"/>
+    </g>
+  </g>
+  <g id="堆积面积" transform="translate(16.338 19.284)">
+    <path id="路径_1157" data-name="路径 1157" d="M38.114,289.113H2.382v-26.3H0V291.5H38.114Z" transform="translate(0 -259.469)" fill="#20bdff"/>
+    <path id="路径_1158" data-name="路径 1158" d="M153.246,331.081l-7.2,6.042-10.792-10.875-8.394,10.875V348h31.178Z" transform="translate(-122.24 -320.588)" fill="#20bdff"/>
+    <path id="路径_1159" data-name="路径 1159" d="M122.615,182.439l-13.344-8.983-6.435,7.812-2.163-1.562,8.37-8.722,13.8,9.113,6.815-5.012,1.822,1.692Zm-11-5.8" transform="translate(-97.002 -170.984)" fill="#20bdff"/>
+  </g>
+</svg>

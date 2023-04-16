@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70" height="70" viewBox="0 0 70 70">
+  <defs>
+    <filter id="椭圆_128">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="12.5" result="blur"/>
+      <feFlood flood-color="#7367f0" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="组_3139" data-name="组 3139" transform="translate(-599.714 -1198.405)">
+    <g data-type="innerShadowGroup">
+      <g transform="matrix(1, 0, 0, 1, 599.71, 1198.41)" filter="url(#椭圆_128)" style="mix-blend-mode: lighten;isolation: isolate">
+        <circle id="椭圆_128-2" data-name="椭圆 128" cx="35" cy="35" r="35" fill="#fff"/>
+      </g>
+      <g id="椭圆_128-3" data-name="椭圆 128" transform="translate(599.714 1198.405)" fill="none" stroke="#5449cd" stroke-width="2" style="mix-blend-mode: lighten;isolation: isolate">
+        <circle cx="35" cy="35" r="35" stroke="none"/>
+        <circle cx="35" cy="35" r="34" fill="none"/>
+      </g>
+    </g>
+    <path id="用户" d="M120.554,38.633a8.376,8.376,0,1,0,8.548,8.374A8.463,8.463,0,0,0,120.554,38.633Zm0,0a8.376,8.376,0,1,0,8.548,8.374A8.463,8.463,0,0,0,120.554,38.633Zm-3.2,19.54A10.932,10.932,0,0,0,106.31,68.989v.7c0,2.444,4.944,2.445,11.042,2.445h7.123c6.1,0,11.039-.09,11.039-2.445v-.7a10.93,10.93,0,0,0-11.039-10.816Zm0,0" transform="translate(514.404 1177.773)" fill="#7367f0"/>
+  </g>
+</svg>

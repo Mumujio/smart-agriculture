@@ -61,7 +61,7 @@ const login = () => {
   if (form.email == 123 && form.password == 123) {
     // 弄一个假的token
     localStorage.setItem("login", "123");
-    router.push(`/index`);
+    router.push(`/${form.email}/index`);
     ElMessage({
       type: "success",
       message: "登录成功",
@@ -71,7 +71,7 @@ const login = () => {
     requestLoginInfo(form).then((res) => {
       if (res.data.status == "登陆成功") {
         localStorage.setItem("login", email);
-        router.push("/index");
+        router.push(`/${form.email}/index`);
       } else {
         ElMessage({
           type: "error",

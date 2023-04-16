@@ -6,7 +6,7 @@ import '@/utils/rem'
 import './assets/css/common.css'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-
+import 'default-passive-events'
 import mitt from 'mitt'
 
 

@@ -2,12 +2,7 @@
   <div class="all">
     <header>
       <h2>肥料使用量</h2>
-      <el-select
-        v-model="select_value"
-        size="small"
-        class="header-select"
-        @change="change"
-      >
+      <el-select v-model="select_value" size="small" class="header-select">
         <el-option
           v-for="item in [
             { label: '上午', value: '上午' },

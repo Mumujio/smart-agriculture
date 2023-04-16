@@ -42,21 +42,21 @@ const select_value = ref("宜昌富农大棚1号");
 const activeName = ref("first");
 const router = useRouter();
 const route = useRoute();
+let loginId = localStorage.getItem("login");
 const handleClick = (TabsPaneContext) => {
   let TabPaneName = TabsPaneContext.props.name;
   if (TabPaneName == "first") {
-    router.push("/index");
+    router.push(`/index`);
   } else if (TabPaneName == "second") {
-    let email = localStorage.getItem("login");
-    router.push(`/home/${email}`);
+    router.push(`/monitor`);
   } else if (TabPaneName == "third") {
-    router.push("/control");
+    router.push(`/control`);
   } else if (TabPaneName == "fourth") {
-    router.push("/manage");
+    router.push(`/manage`);
   }
 };
 onMounted(() => {
-  if (route.name == "home") {
+  if (route.name == "monitor") {
     activeName.value = "second";
   } else if (route.name == "index") {
     activeName.value = "first";

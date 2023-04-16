@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="69" height="85" viewBox="0 0 69 85">
+  <defs>
+    <filter id="椭圆_152">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="12.5" result="blur"/>
+      <feFlood flood-color="#ffc700" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1.161" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ffc700"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="矩形_3623" data-name="矩形 3623" width="40" height="40" transform="translate(1534.074 916.074)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-2" x1="0.5" y1="1" x2="0.5" y2="-0.037" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#edb900"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0.78"/>
+    </linearGradient>
+  </defs>
+  <g id="组_3184" data-name="组 3184" transform="translate(-1475 -889)">
+    <g data-type="innerShadowGroup">
+      <g transform="matrix(1, 0, 0, 1, 1475, 889)" filter="url(#椭圆_152)">
+        <ellipse id="椭圆_152-2" data-name="椭圆 152" cx="34.5" cy="16.5" rx="34.5" ry="16.5" transform="translate(0 52)" fill="#fff"/>
+      </g>
+      <g id="椭圆_152-3" data-name="椭圆 152" transform="translate(1475 941)" fill="none" stroke="#ffc700" stroke-width="1">
+        <ellipse cx="34.5" cy="16.5" rx="34.5" ry="16.5" stroke="none"/>
+        <ellipse cx="34.5" cy="16.5" rx="34" ry="16" fill="none"/>
+      </g>
+    </g>
+    <path id="减去_1" data-name="减去 1" d="M-1695,1646.541c-1.81-3.114-6.094-5.933-12.064-7.939a68.432,68.432,0,0,0-21.435-3.16,68.428,68.428,0,0,0-21.434,3.16c-5.966,2-10.251,4.823-12.064,7.935l0-61.538h67v61.541Z" transform="translate(3238 -696)" fill="url(#linear-gradient)"/>
+    <g id="蒙版组_4" data-name="蒙版组 4" transform="translate(-44.074 5.926)" clip-path="url(#clip-path)">
+      <path id="警告" d="M23.215,3.914a10.1,10.1,0,0,0,.829,1.36c.5.85,1,1.7,1.659,3.061s1.493,2.551,2.323,4.081,1.825,3.061,2.654,4.591,1.825,3.231,2.654,4.761a47.018,47.018,0,0,0,2.488,4.251,30.069,30.069,0,0,0,1.991,3.4,19.651,19.651,0,0,0,1.161,1.87,4.917,4.917,0,0,1,.664,2.041,3.618,3.618,0,0,1-.166,1.87,2.692,2.692,0,0,1-.829,1.36,2.755,2.755,0,0,1-1.659.51H3.474a4.306,4.306,0,0,1-2.323-.51,2.64,2.64,0,0,1-1-1.36,2.967,2.967,0,0,1,0-1.7,4.647,4.647,0,0,1,.829-1.87c.166-.34.5-.85,1-1.87.5-.85,1.161-2.041,1.991-3.231.829-1.36,1.659-2.721,2.488-4.251s1.825-3.231,2.82-4.761,1.825-3.231,2.654-4.761,1.659-2.891,2.323-4.081,1.327-2.211,1.825-3.061l.829-1.36A3.951,3.951,0,0,1,18.4,2.893a3.711,3.711,0,0,1,1.825-.51,6.9,6.9,0,0,1,1.825.34,3.88,3.88,0,0,1,1.161,1.19Zm-1,7.822a1.3,1.3,0,0,0-.166-.85,2.342,2.342,0,0,0-.5-.68,3.611,3.611,0,0,0-.829-.51,2.319,2.319,0,0,0-1-.34,2.1,2.1,0,0,0-1.659.68,2.383,2.383,0,0,0-.829,1.7V22.278a2.383,2.383,0,0,0,.829,1.7,2.1,2.1,0,0,0,1.659.68,2.1,2.1,0,0,0,1.659-.68,2.383,2.383,0,0,0,.829-1.7V11.736Zm-2.488,15.3a1.9,1.9,0,0,0-1.659.68,3.063,3.063,0,0,0-.664,1.7,2,2,0,0,0,.664,1.7,2.1,2.1,0,0,0,1.659.68,1.9,1.9,0,0,0,1.659-.68,2.212,2.212,0,0,0,.664-1.7,2,2,0,0,0-.664-1.7A1.9,1.9,0,0,0,19.731,27.04Z" transform="translate(1533.959 916.595)" fill="url(#linear-gradient-2)"/>
+    </g>
+  </g>
+</svg>
